@@ -1,3 +1,5 @@
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
+
 # Default editor
 export EDITOR=vim
 export VISUAL=vim
