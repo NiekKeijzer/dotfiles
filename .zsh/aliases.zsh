@@ -28,6 +28,6 @@ alias myip="curl ipecho.net/plain"
 
 alias kubeui="kubectl proxy --port=8800 & newtab http://localhost:8800/ui"
 
-if [ command -v thefuck 2&>1 ]; then
+if command -v thefuck >/dev/null; then
   eval $(thefuck --alias fuck)
 fi
