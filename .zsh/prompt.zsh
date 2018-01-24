@@ -48,7 +48,7 @@ GIT_PROMPT() {
     ;;
   esac
 
-  echo "${USER_LEVEL}─[${COLOR_NORMAL}"${ref}${dirty}${stat}"${USER_LEVEL}]"
+  echo "${USER_LEVEL}╶╴${COLOR_NORMAL}"${ref}${dirty}${stat}"${USER_LEVEL}╺─╸"
 }
-PROMPT='${USER_LEVEL}┌[${COLOR_NORMAL}%~${USER_LEVEL}]$(GIT_PROMPT)
-${USER_LEVEL}└─ - %f'
+PROMPT='${USER_LEVEL}┌╸${COLOR_NORMAL}%~${USER_LEVEL}$(GIT_PROMPT)
+${USER_LEVEL}└─╸ %f'
