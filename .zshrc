@@ -15,6 +15,10 @@ if [[ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]
   source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+if [[ -f $HOME/.zsh/ssh-agent.sh ]]; then
+  source $HOME/.zsh/ssh-agent.sh >/dev/null 
+fi
+
 # Stop profiling
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
