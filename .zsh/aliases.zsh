@@ -17,10 +17,9 @@ alias bye="sudo shutdown -h now"
 alias cya="sudo shutdown -r now"
 
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
-alias newtab='osascript ~/Scripts/newtab.scpt'
 alias clean_ds="find . -name '*.DS_Store' -type f -ls -delete"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-alias myip="curl ipecho.net/plain"
+alias myip="curl https://api.ipify.org"
 
 # ====================================
 # Apps 'n' Stuff
