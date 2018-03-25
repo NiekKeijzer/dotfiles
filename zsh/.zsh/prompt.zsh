@@ -5,7 +5,7 @@ ICO_AHEAD="↑"
 ICO_BEHIND="↓"
 ICO_DIVERGED="⥮"
 COLOR_ROOT="%F{red}"
-COLOR_USER="%F{cyan}"
+COLOR_USER="%F{blue}"
 COLOR_NORMAL="%F{white}"
 PROMPT_STYLE="dual"
 
