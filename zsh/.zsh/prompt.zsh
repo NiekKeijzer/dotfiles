@@ -14,7 +14,7 @@ fi
 setopt PROMPT_SUBST
 autoload -Uz colors && colors
 
-GIT_PROMPT() {
+function git_prompt() {
   is_git=$(git rev-parse --is-inside-work-tree 2> /dev/null)
   if [ ! ${is_git} ]; then
     # Don't include a Git prompt if we're not in a Git directory
@@ -48,5 +48,14 @@ GIT_PROMPT() {
   echo "${prompt}${stat}"
 }
 
-PROMPT='${USER_COLOR}┌╸${COLOR_NORMAL}%~$(GIT_PROMPT)${USER_COLOR}╺─
+function trailing() {
+  # Determine if the trailing line thingy should be displayed
+  is_git=$(git rev-parse --is-inside-work-tree 2> /dev/null)
+
+  if [ \( "${is_git}" \) ]; then
+    echo "${USER_COLOR}╺─"
+  fi
+}
+
+PROMPT='${USER_COLOR}┌╸${COLOR_NORMAL}%~$(git_prompt)$(trailing)
 ${USER_COLOR}└─╸ %f'
