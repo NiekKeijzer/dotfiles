@@ -17,7 +17,7 @@ alias bye="sudo shutdown -h now"
 alias cya="sudo shutdown -r now"
 
 alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
-alias clean_ds="find . -name '*.DS_Store' -type f -ls -delete"
+alias dsclean="find . -name '*.DS_Store' -type f -ls -delete"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 # Shouldn't be necessary if PYTHONDONTWRITEBYTECODE is set to `True`
