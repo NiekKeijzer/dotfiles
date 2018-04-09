@@ -16,5 +16,7 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 export LESSCHARSET=utf-8
 
-# Virtualenv
+# Python stuff
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+# Only uncomment to dev machines
+# export PYTHONDONTWRITEBYTECODE=True

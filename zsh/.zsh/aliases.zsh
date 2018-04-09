@@ -20,6 +20,9 @@ alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias clean_ds="find . -name '*.DS_Store' -type f -ls -delete"
 alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
+# Shouldn't be necessary if PYTHONDONTWRITEBYTECODE is set to `True`
+alias pyclean="find . -name '*.pyc' -name '__pycache__' | xargs -I {} rm -v '{}'"
+
 # Pretty cat
 alias c="pygmentize -O style=borland -f console256 -g"
 
