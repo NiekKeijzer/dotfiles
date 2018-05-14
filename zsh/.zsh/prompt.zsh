@@ -57,5 +57,5 @@ function trailing() {
   fi
 }
 
-PROMPT='${USER_COLOR}┌╸${COLOR_NORMAL}%~$(git_prompt)$(trailing)
+PROMPT='${USER_COLOR}┌╸${COLOR_NORMAL}%~$(trailing)
 ${USER_COLOR}└─╸ %f'
