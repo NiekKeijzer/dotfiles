@@ -39,12 +39,13 @@ if command -v thefuck >/dev/null; then
   alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD ; test -n "$TF_CMD" && print -s $TF_CMD'
 fi
 
-if command -v pyenv >/dev/null; then
-  # Configure PyEnv
-  eval "$(pyenv init -)"
+if [ -f "$HOME/.travis/travis.sh" ]; then 
+    source "$HOME/.travis/travis.sh"
+fi
 
-  if command -v pyenv-virtualenv-init >/dev/null; then
-    # Optionally configure PyEnv virutalenv as well
-    eval "$(pyenv virtualenv-init -)";
-  fi
+# Configure PyEnv
+if command -v pyenv >/dev/null; then
+    # TODO: Speed up
+    eval "$(pyenv init - --no-rehash)"
+    eval "$(pyenv virtualenv-init -)"
 fi
