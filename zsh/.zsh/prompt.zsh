@@ -22,30 +22,30 @@ function git_prompt() {
   fi
 
   branch=$(git branch | grep \* | cut -d ' ' -f2  2> /dev/null)
-  prompt="${USER_COLOR}╶╴${COLOR_NORMAL}${branch}"
+  git_prompt="${USER_COLOR}╶╴${COLOR_NORMAL}${branch}"
 
   uncommited=$(git status --porcelain | wc -l 2> /dev/null)
   if [ ${uncommited} -gt "0" ]; then
-    prompt="${prompt}${ICO_UNCOMMITED}"
+    git_prompt="${git_prompt}${ICO_UNCOMMITED}"
   fi
 
   git_status=$(git status | sed -n 2p 2> /dev/null)
   case ${git_status} in
     *ahead*)
-      stat=${ICON_AHEAD}
+      git_stat=${ICON_AHEAD}
     ;;
     *behind*)
-      stat=${ICON_BEHIND}
+      git_stat=${ICON_BEHIND}
     ;;
     *diverged*)
-      stat=${ICON_DIVERGED}
+      git_stat=${ICON_DIVERGED}
     ;;
     *)
-      stat=""
+      git_stat=""
     ;;
   esac
 
-  echo "${prompt}${stat}"
+  echo "$git_prompt$git_stat"
 }
 
 function trailing() {
@@ -57,5 +57,17 @@ function trailing() {
   fi
 }
 
-PROMPT='${USER_COLOR}┌╸${COLOR_NORMAL}%~$(trailing)
+function update_prompt() {
+    if [[ ! $3 =~ '[+-]?([0-9]*[.])?[0-9]+' ]]; then
+        export PROMPT="${PROMPT/\$\(: __git__\)/$3}"
+        print $@
+    fi
+#    async_job git git_prompt
+}
+
+# async_start_worker git -n
+# async_register_callback git update_prompt
+# async_job git git_prompt 
+
+PROMPT='${USER_COLOR}┌╸${COLOR_NORMAL}%~${USER_COLOR}$(: __git__)${USER_COLOR}╺─
 ${USER_COLOR}└─╸ %f'

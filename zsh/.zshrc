@@ -27,3 +27,6 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
 fi
+
+# added by travis gem
+[ -f /Users/niekkeijzer/.travis/travis.sh ] && source /Users/niekkeijzer/.travis/travis.sh

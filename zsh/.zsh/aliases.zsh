@@ -39,12 +39,6 @@ if command -v thefuck >/dev/null; then
   alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD ; test -n "$TF_CMD" && print -s $TF_CMD'
 fi
 
-if command -v pyenv >/dev/null; then
-  # Configure PyEnv
-  eval "$(pyenv init -)"
-
-  if command -v pyenv-virtualenv-init >/dev/null; then
-    # Optionally configure PyEnv virutalenv as well
-    eval "$(pyenv virtualenv-init -)";
-  fi
-fi
+# Configure PyEnv
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)";
