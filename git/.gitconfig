@@ -14,5 +14,4 @@
 
 [core]
     excludesfiles = ~/.gitignore_global
-	autocrlf = input
-
+    autocrlf = input

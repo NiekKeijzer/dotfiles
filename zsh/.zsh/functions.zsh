@@ -16,3 +16,11 @@ function load_keys() {
     fi
   done
 }
+
+function public() {
+  if [ "$1" != "" ]; then
+    autossh -M 0 -R 80:localhost:$1 serveo.net -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no
+  else
+    autossh -M 0 -R 80:localhost:80 serveo.net -o PreferredAuthentications=keyboard-interactive,password -o PubkeyAuthentication=no
+  fi
+}
