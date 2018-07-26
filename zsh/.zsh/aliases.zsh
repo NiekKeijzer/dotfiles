@@ -31,7 +31,7 @@ alias c="pygmentize -O style=borland -f console256 -g"
 # ====================================
 
 alias kubeui="kubectl proxy --port=8800 & newtab http://localhost:8800/ui"
-alias publicip="curl https://api.ipify.org"
+alias publicip="curl https://api.ipify.org 2> /dev/null | xargs"
 alias localip="ipconfig getifaddr en0"
 alias weather="curl -4 http://wttr.in"
 
