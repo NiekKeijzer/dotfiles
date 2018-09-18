@@ -35,6 +35,10 @@ alias publicip="curl https://api.ipify.org 2> /dev/null | xargs"
 alias localip="ipconfig getifaddr en0"
 alias weather="curl -4 http://wttr.in"
 
+genpw() {
+    pwgen -Bs $1 1 
+}
+
 if command -v thefuck >/dev/null; then
   alias fuck='TF_CMD=$(TF_ALIAS=fuck PYTHONIOENCODING=utf-8 TF_SHELL_ALIASES=$(alias) thefuck $(fc -ln -1 | tail -n 1)) && eval $TF_CMD ; test -n "$TF_CMD" && print -s $TF_CMD'
 fi

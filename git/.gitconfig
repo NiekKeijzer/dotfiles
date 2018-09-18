@@ -1,6 +1,6 @@
 [user]
     name = Niek Keijzer
-    email = info@niekkeijzer.com
+	email = niek@qabana.nl
 
 [gitflow "prefix"]
     feature = feature/
@@ -15,3 +15,10 @@
 [core]
     excludesfiles = ~/.gitignore_global
     autocrlf = input
+	excludesfile = /Users/niekkeijzer/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Users/niekkeijzer/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
