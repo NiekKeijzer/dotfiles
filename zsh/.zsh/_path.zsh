@@ -29,4 +29,8 @@ export PATH=$ANDROID_HOME/tools:$PATH
 # Set GRADLE_HOME
 export GRADLE_HOME=/Library/gradle/gradle-3.2
 export PATH=$PATH:$GRADLE_HOME/bin
-# Set Latex home
+
+# Set Poetry path
+if [ -d $HOME/.poetry/bin ]; then 
+    export PATH=$PATH:$HOME/.poetry/bin
+fi
