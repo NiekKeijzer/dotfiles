@@ -40,3 +40,6 @@ if command -v pyenv >/dev/null; then
     eval "$(pyenv virtualenv-init -)"; 
   fi
 fi
+
+alias freeze="pip freeze >> requirements.txt"
+alias listening_on="lsof -nP -i4TCP:$1"
