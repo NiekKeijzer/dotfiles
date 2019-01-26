@@ -1,54 +1,61 @@
-# Modified version of Xero's version
-# See: https://github.com/xero/dotfiles/blob/master/zsh/.zsh/prompt.zsh
-ICO_DIRTY="*"
-ICO_AHEAD="↑"
-ICO_BEHIND="↓"
-ICO_DIVERGED="⥮"
-COLOR_ROOT="%F{red}"
-COLOR_USER="%F{blue}"
+# Config values
+ICON_UNCOMMITED="*"
+ICON_AHEAD="↑"
+ICON_BEHIND="↓"
 COLOR_NORMAL="%F{white}"
-PROMPT_STYLE="dual"
+
+if [[ $(id -u 2> /dev/null) = "0" ]]; then
+  # Use different line color for root user
+  USER_COLOR="%F{red}"
+else
+  USER_COLOR="%F{blue}"
+fi
 
 setopt PROMPT_SUBST
 autoload -Uz colors && colors
 
-if [[ "$EUID" -ne "0" ]]
-then  # if user is not root
-	USER_LEVEL="${COLOR_USER}"
-else # root!
-	USER_LEVEL="${COLOR_ROOT}"
-fi
-
-#█▓▒░ git prompt
-GIT_PROMPT() {
-	# TODO: Check if branch has remote
-
-  test=$(git rev-parse --is-inside-work-tree 2> /dev/null)
-  if [ ! "$test" ]; then
-		# Return directly if we're not in a git directory
+function git_prompt() {
+  is_git=$(git rev-parse --is-inside-work-tree 2> /dev/null)
+  if [ ! ${is_git} ]; then
+    # Don't include a Git prompt if we're not in a Git directory
     return
   fi
 
-  ref=$(git branch | sed -n '/\* /s///p' 2> /dev/null)
-  dirty="" && [[ $(git status | grep "Untracked") ]] && dirty=$ICO_DIRTY
-  remote=$(git rev-parse --symbolic-full-name --abbrev-ref @{u} 2> /dev/null)
-  stat=$(git status | sed -n 2p)
-  case "$stat" in
+  branch=$(git branch | grep \* | cut -d ' ' -f2  2> /dev/null)
+  prompt="${USER_COLOR}╶╴${COLOR_NORMAL}${branch}"
+
+  uncommited=$(git status --porcelain | wc -l 2> /dev/null)
+  if [ ${uncommited} -gt "0" ]; then
+    prompt="${prompt}${ICO_UNCOMMITED}"
+  fi
+
+  git_status=$(git status | sed -n 2p 2> /dev/null)
+  case ${git_status} in
     *ahead*)
-      stat=$ICO_AHEAD
+      stat=${ICON_AHEAD}
     ;;
     *behind*)
-      stat=$ICO_BEHIND
+      stat=${ICON_BEHIND}
     ;;
     *diverged*)
-      stat=$ICO_DIVERGED
+      stat=${ICON_DIVERGED}
     ;;
     *)
       stat=""
     ;;
   esac
 
-  echo "${USER_LEVEL}╶╴${COLOR_NORMAL}"${ref}${dirty}${stat}"${USER_LEVEL}╺─╸"
+  echo "${prompt}${stat}"
 }
-PROMPT='${USER_LEVEL}┌╸${COLOR_NORMAL}%~${USER_LEVEL}$(GIT_PROMPT)
-${USER_LEVEL}└─╸ %f'
+
+function trailing() {
+  # Determine if the trailing line thingy should be displayed
+  is_git=$(git rev-parse --is-inside-work-tree 2> /dev/null)
+
+  if [ \( "${is_git}" \) ]; then
+    echo "${USER_COLOR}╺─"
+  fi
+}
+
+PROMPT='${USER_COLOR}┌╸${COLOR_NORMAL}%~$(git_prompt)$(trailing)
+${USER_COLOR}└─╸ %f'
