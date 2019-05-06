@@ -12,6 +12,7 @@
 [alias]
     pretty = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+	trackedignored = ls-files -i --exclude-standard
 
 [core]
     excludesfiles = ~/.gitignore_global
@@ -23,3 +24,14 @@
 [mergetool "sourcetree"]
 	cmd = /Users/niekkeijzer/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[status]
+	submoduleSummary = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+# This next lines include Netlify's Git Credential Helper configuration in your Git configuration.
+[include]
+  path = /Users/niekkeijzer/.netlify/helper/git-config

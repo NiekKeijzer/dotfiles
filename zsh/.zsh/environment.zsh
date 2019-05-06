@@ -20,3 +20,5 @@ export LESSCHARSET=utf-8
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 # Only uncomment to dev machines
 # export PYTHONDONTWRITEBYTECODE=True
+
+export HOMEBREW_NO_ANALYTICS=1

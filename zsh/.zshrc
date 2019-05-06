@@ -27,3 +27,6 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
     exec 2>&3 3>&-
 fi
+
+# The next line updates PATH for Netlify's Git Credential Helper.
+if [ -f '/Users/niekkeijzer/.netlify/helper/path.zsh.inc' ]; then source '/Users/niekkeijzer/.netlify/helper/path.zsh.inc'; fi

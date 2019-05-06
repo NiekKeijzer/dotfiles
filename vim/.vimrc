@@ -14,4 +14,5 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', {'as': 'dracula'}
+Plug 'cespare/vim-toml'
 call plug#end()
