@@ -1,0 +1,17 @@
+[user]
+    name = Niek Keijzer
+    email = info@niekkeijzer.com
+
+[gitflow "prefix"]
+    feature = feature/
+    release = release/
+    hotfix = hotfix/
+    support = support/
+    versiontag = v
+
+[alias]
+    pretty = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    
+[core]
+	autocrlf = input
+    excludesfiles = ~/.gitignore_global
