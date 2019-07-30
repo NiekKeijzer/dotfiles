@@ -14,6 +14,6 @@ if command -v pyenv >/dev/null; then
   export PATH="$PYENV_ROOT/bin:$PATH"
 fi
 
-if command -v pipx >/dev/null; then
+if [ -d "$HOME/.local/bin" ]; then
   export PATH="$PATH:$HOME/.local/bin"
 fi
