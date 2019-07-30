@@ -2,6 +2,20 @@
 
 Might not work for you, but works for me.
 
+## Downloading
+
+This repository relies on Git submodules, make sure you clone this repo with
+
+```
+git clone --recursive git@gitlab.com:NiekKeijzer/dotfiles.git
+```
+
+To update the submodules run
+
+```
+git submodule update
+```
+
 ## Usage
 
 Make sure you have stow installed
