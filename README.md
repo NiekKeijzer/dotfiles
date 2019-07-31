@@ -16,6 +16,17 @@ To update the submodules run
 git submodule update
 ```
 
+## Installation
+
+Run the following commands to finish setting up
+
+```
+vim -c :PlugInstall
+```
+
+Alternatively use my [Ansible Mac Setup repo](https://gitlab.com/NiekKeijzer/mac_setup)
+ to automate the entire process. 
+
 ## Usage
 
 Make sure you have stow installed
