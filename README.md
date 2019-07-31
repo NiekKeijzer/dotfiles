@@ -25,7 +25,7 @@ vim -c :PlugInstall
 ```
 
 Alternatively use my [Ansible Mac Setup repo](https://gitlab.com/NiekKeijzer/mac_setup)
- to automate the entire process. 
+ to automate the entire process.
 
 ## Usage
 
@@ -40,4 +40,11 @@ Select the dotfiles you'd like to install and run the following for each of them
 ```
 stow -t ~ vim
 ```
-Note: The -t ~ may not be necessary in most cases, but ensures the files are placed in the homedir.
+Note: The -t ~ may not be necessary in most cases, but ensures the files are
+ placed in the homedir.
+
+### Custom configuration
+
+If either `.extra` or `.extra.zsh` exists in the user's homedir, it's loaded
+ during the final step of initialization. This can be used to overwrite the
+ Git committer for example.
