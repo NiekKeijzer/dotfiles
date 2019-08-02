@@ -7,3 +7,6 @@
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "dokku/.dokku"]
+	path = dokku/.dokku
+	url = https://github.com/dokku/dokku.git
