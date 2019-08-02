@@ -11,4 +11,7 @@
 
 [core]
 	autocrlf = input
-    excludesfiles = ~/.gitignore_global
+  excludesfiles = ~/.gitignore_global
+
+[include]
+  path = ~/.git_user
