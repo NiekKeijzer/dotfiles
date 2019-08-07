@@ -83,4 +83,4 @@ zstyle :omz:plugins:ssh-agent lifetime 5m
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-for config (.zsh/*.zsh) source $config
+for config ($HOME/.zsh/*.zsh) source $config
