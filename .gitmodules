@@ -10,3 +10,6 @@
 [submodule "dokku/.dokku"]
 	path = dokku/.dokku
 	url = https://github.com/dokku/dokku.git
+[submodule "hammerspoon/.hammerspoon/spoons"]
+	path = hammerspoon/.hammerspoon/spoons
+	url = https://github.com/miromannino/miro-windows-manager.git
