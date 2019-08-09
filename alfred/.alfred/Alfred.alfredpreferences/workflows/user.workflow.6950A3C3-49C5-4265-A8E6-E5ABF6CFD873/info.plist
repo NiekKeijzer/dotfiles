@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.tylerkemme.lipsum</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>202E3500-A862-47F7-BCD0-9204E53A9717</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8AE39E6D-47A3-4650-A93A-D649EA1A5B2E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>8AE39E6D-47A3-4650-A93A-D649EA1A5B2E</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D0A818EC-E8AD-46B3-84EA-0638C897158B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>67FE60C7-A800-479C-A63A-96FCCF519324</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Tyler Kemme</string>
+	<key>description</key>
+	<string>Lorem Ipsum Generator via lipsum.com</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>tkLipsum</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<true/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>D0A818EC-E8AD-46B3-84EA-0638C897158B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>lorem</string>
+				<key>subtext</key>
+				<string>Generate lipsum paragraphs</string>
+				<key>text</key>
+				<string>Paragraph</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>202E3500-A862-47F7-BCD0-9204E53A9717</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/**
+ * This php script queries a form at http://www.lipsum.com/ to get a
+ * hashed version of a provided or default password
+ *
+ * This script is run using the command 'lipsum p 4' where p stands for 
+ * paragraph and 4 is the number of paragraphs.  Other option is w for words.
+ * 
+ */
+
+// Query in the form of two parameters 'type' and number of 'type'
+$query = "{query}";
+$type = '';
+ // There are no arguments... 
+if( empty( $query ) ){
+  	
+	// No type, use default 'paragraph'
+    $type = 'paras';
+	$num = '1';
+}
+// At least 1 argument exists
+else{
+
+    // Turn query string into params array
+    $params = explode(' ', $query);
+    
+    // Get provided type
+    $type = $params[0];
+
+	if( $type === 'p' ){
+		$type = 'paras';
+	}
+	else if( $type === 'w' ){
+		$type = 'words';
+	}
+	else{
+		$type = 'paras';
+	}
+
+	// Get Number of type if available
+	if( $params[1] ){
+		$num = $params[1];
+	}
+	else{
+		$num = 1;
+	}
+}
+
+$hashUrl = 'http://www.lipsum.com/feed/html?what='. $type . '&amp;amount=' . $num;
+$options = array(
+	'http' =&gt; array(
+	'header'  =&gt; "Content-type: application/x-www-form-urlencoded\r\n",
+	'method'  =&gt; 'GET')
+);
+
+$context  = stream_context_create($options);
+$output = file_get_contents( $hashUrl, false, $context );
+
+// Extract lipsum
+$first_step = explode( '&lt;div id="lipsum"&gt;' , $output );
+$second_step = explode('&lt;/div&gt;' , $first_step[1] );
+
+$return = str_replace( '&lt;/p&gt;', '', str_replace('&lt;p&gt;', '', $second_step[0]));
+
+$tmp = explode("\n", $return);
+array_shift($tmp);
+array_shift($tmp);
+$final = implode( "\n", $tmp );
+
+echo $final;</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>8AE39E6D-47A3-4650-A93A-D649EA1A5B2E</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Lipsum copied to clipboard!</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>67FE60C7-A800-479C-A63A-96FCCF519324</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>202E3500-A862-47F7-BCD0-9204E53A9717</key>
+		<dict>
+			<key>xpos</key>
+			<integer>100</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+		<key>67FE60C7-A800-479C-A63A-96FCCF519324</key>
+		<dict>
+			<key>xpos</key>
+			<integer>690</integer>
+			<key>ypos</key>
+			<integer>330</integer>
+		</dict>
+		<key>8AE39E6D-47A3-4650-A93A-D649EA1A5B2E</key>
+		<dict>
+			<key>xpos</key>
+			<integer>340</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
+		<key>D0A818EC-E8AD-46B3-84EA-0638C897158B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>710</integer>
+			<key>ypos</key>
+			<integer>20</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>tylerkemme.com</string>
+</dict>
+</plist>

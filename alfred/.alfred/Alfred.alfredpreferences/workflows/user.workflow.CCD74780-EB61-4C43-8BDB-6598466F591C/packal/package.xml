@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<workflow>
+  <name>VM Control</name>
+  <version>1.6</version>
+  <bundle>com.fniephaus.vmcontrol</bundle>
+  <updated>1494587181</updated>
+  <file>vm-control-for-alfred.alfredworkflow</file>
+</workflow>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>com.altre.python_interpreter</string>
+	<key>connections</key>
+	<dict>
+		<key>6A344E57-16C8-4F5D-9D5D-8A11106D2B6A</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>3177CF13-43E3-4EBD-94FC-5946647DB5CC</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A0C2BD60-2C4F-4EE5-8143-A49891287F49</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>728C312B-DDD8-4AD8-9C97-72347D9FE0F6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>altre</string>
+	<key>description</key>
+	<string>Power of Python at your fingertips</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Python Interpreter</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>py</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>2</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>evaluating</string>
+				<key>script</key>
+				<string>python execute.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string>Python 2</string>
+				<key>title</key>
+				<string>Evaluate or execute in python interpreter</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>A0C2BD60-2C4F-4EE5-8143-A49891287F49</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>728C312B-DDD8-4AD8-9C97-72347D9FE0F6</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>python
+try: 
+	from numpy import *
+except ImportError: 
+	pass
+
+from math import *
+from random import *
+from re import *
+from calendar import *
+from os.path import *
+from shutil import *
+from json import *
+from time import *
+from macostools import *
+import os
+os.system('cls' if os.name == 'nt' else 'clear')
+{query}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.terminalcommand</string>
+			<key>uid</key>
+			<string>3177CF13-43E3-4EBD-94FC-5946647DB5CC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>keyword</key>
+				<string>py</string>
+				<key>subtext</key>
+				<string>in terminal</string>
+				<key>text</key>
+				<string>Run in python interpreter</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>6A344E57-16C8-4F5D-9D5D-8A11106D2B6A</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>3177CF13-43E3-4EBD-94FC-5946647DB5CC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>500</integer>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
+		<key>6A344E57-16C8-4F5D-9D5D-8A11106D2B6A</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
+		<key>728C312B-DDD8-4AD8-9C97-72347D9FE0F6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>510</integer>
+			<key>ypos</key>
+			<integer>30</integer>
+		</dict>
+		<key>A0C2BD60-2C4F-4EE5-8143-A49891287F49</key>
+		<dict>
+			<key>xpos</key>
+			<integer>300</integer>
+			<key>ypos</key>
+			<real>30</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
