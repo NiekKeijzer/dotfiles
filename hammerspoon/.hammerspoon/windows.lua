@@ -1,12 +1,12 @@
-local hyper = {"ctrl", "cmd"}
+-- resize windows
+local config = require("_config")
 
 hs.loadSpoon("MiroWindowsManager")
-hs.window.animationDuration = 0.1
 
 spoon.MiroWindowsManager:bindHotkeys({
-  up = {hyper, "up"},
-  right = {hyper, "right"},
-  down = {hyper, "down"},
-  left = {hyper, "left"},
-  fullscreen = {hyper, "f"}
+  up = {config.hyper, "up"},
+  right = {config.hyper, "right"},
+  down = {config.hyper, "down"},
+  left = {config.hyper, "left"},
+  fullscreen = {config.hyper, "f"}
 })
