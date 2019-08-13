@@ -1,7 +1,9 @@
 local config = require("_config")
 local applicationHotkeys = {
-  i = 'iTerm',
-  w = 'Wire'
+  f = "Firefox",
+  i = "iTerm",
+  s = "Safari",
+  w = "Wire"
 }
 
 for key, app in pairs(applicationHotkeys) do
