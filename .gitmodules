@@ -4,6 +4,9 @@
 [submodule "zsh/.zsh-custom/plugins/zsh-syntax-highlighting"]
 	path = zsh/.zsh-custom/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "zsh/.zsh-custom/plugins/zsh-defer"]
+	path = zsh/.zsh-custom/plugins/zsh-defer
+	url = https://github.com/romkatv/zsh-defer.git
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
