@@ -1,3 +1,9 @@
+export ZSH_PROFILE=false
+
+if [ "$ZSH_PROFILE" = true ]; then 
+  zmodload zsh/zprof
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=/usr/local/bin:$HOME/Library/Python/3.7/bin:$PATH
@@ -74,10 +80,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Load completions
 # autoload -U compinit
 
-zstyle :omz:plugins:ssh-agent agent-forwarding on
-# Uncomment and add identities
-# zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa2 id_github
-zstyle :omz:plugins:ssh-agent lifetime 5m
-
 # User configuration
 for config ($HOME/.zsh/*.zsh) source $config
+
+if [ "$ZSH_PROFILE" = true ]; then 
+  zprof > ~/.zsh_profile
+fi

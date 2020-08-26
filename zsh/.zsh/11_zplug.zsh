@@ -13,7 +13,6 @@ zplug "lib/functions", from:oh-my-zsh
 zplug "lib/history", from:oh-my-zsh
 zplug "lib/theme-and-appearance", from:oh-my-zsh
 zplug "plugins/command-not-found", from:oh-my-zsh
-zplug "plugins/z", from:oh-my-zsh
 
 # Oh my ZSH plugins 
 zplug "plugins/common-aliases", from:oh-my-zsh
@@ -21,13 +20,8 @@ zplug "plugins/django", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/docker-compose", from:oh-my-zsh
 zplug "plugins/dotenv", from:oh-my-zsh
-zplug "plugins/jsontools", from:oh-my-zsh
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/git-auto-fetch", from:oh-my-zsh
-zplug "plugins/gitfast", from:oh-my-zsh
-zplug "plugins/nvm", from:oh-my-zsh
-zplug "plugins/osx", from:oh-my-zsh
-zplug "plugins/ssh-agent", from:oh-my-zsh
 
 # ZSH users
 zplug "zsh-users/zsh-completions"
