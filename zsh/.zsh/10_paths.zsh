@@ -22,3 +22,7 @@ fi
 if [ -d "$HOME/.local/bin" ]; then
   export PATH="$PATH:$HOME/.local/bin"
 fi
+
+if [ -d "$HOME/.symfony/bin" ]; then 
+  export PATH="$HOME/.symfony/bin:$PATH"
+fi
