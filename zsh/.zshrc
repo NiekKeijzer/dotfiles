@@ -70,10 +70,10 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages common-aliases django docker docker-compose dotenv git git-auto-fetch gitfast httpie jsontools osx ssh-agent taskwarrior zsh-completions zsh-syntax-highlighting)
+plugins=(common-aliases zsh-defer django docker docker-compose dotenv git git-auto-fetch gitfast jsontools nvm osx ssh-agent zsh-completions zsh-syntax-highlighting)
 
-# Reload completions
-autoload -U compinit && compinit
+# Load completions
+autoload -U compinit
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 # Uncomment and add identities
@@ -84,3 +84,5 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 for config ($HOME/.zsh/*.zsh) source $config
+
+eval $(thefuck --alias)
