@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Elastic Documentation Search</name>
-  <version>1.0.3</version>
-  <bundle>de.spinscale.alfred.elastic</bundle>
-  <updated>1491223195</updated>
-  <file>elastic.alfredworkflow</file>
-</workflow>

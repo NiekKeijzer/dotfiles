@@ -28,3 +28,4 @@ Temporary Items
 
 zsh/.extra.zsh
 git/.git_user
+.env

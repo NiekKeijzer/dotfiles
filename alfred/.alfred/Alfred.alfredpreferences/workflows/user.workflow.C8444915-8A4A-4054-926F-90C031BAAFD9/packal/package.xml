@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<workflow>
-  <name>Alfred URI Parser</name>
-  <version>1.0</version>
-  <bundle>com.dk.URIParser</bundle>
-  <updated>1444468063</updated>
-  <file>uri-parser.alfredworkflow</file>
-</workflow>
