@@ -10,6 +10,9 @@
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh/.oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
+[submodule "zsh/.zsh-custom/plugins/zsh-async"]
+	path = zsh/.zsh-custom/plugins/zsh-async
+	url = https://github.com/mafredri/zsh-async.git
 [submodule "dokku/.dokku"]
 	path = dokku/.dokku
 	url = https://github.com/dokku/dokku.git

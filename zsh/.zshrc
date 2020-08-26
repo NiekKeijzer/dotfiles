@@ -10,7 +10,7 @@ export ZSH_CUSTOM=$HOME/.zsh-custom
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,19 +70,14 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(common-aliases zsh-defer django docker docker-compose dotenv git git-auto-fetch gitfast jsontools nvm osx ssh-agent zsh-completions zsh-syntax-highlighting)
 
 # Load completions
-autoload -U compinit
+# autoload -U compinit
 
 zstyle :omz:plugins:ssh-agent agent-forwarding on
 # Uncomment and add identities
 # zstyle :omz:plugins:ssh-agent identities id_rsa id_rsa2 id_github
 zstyle :omz:plugins:ssh-agent lifetime 5m
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 for config ($HOME/.zsh/*.zsh) source $config
-
-eval $(thefuck --alias)

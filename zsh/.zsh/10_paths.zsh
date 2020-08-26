@@ -26,3 +26,7 @@ fi
 if [ -d "$HOME/.symfony/bin" ]; then 
   export PATH="$HOME/.symfony/bin:$PATH"
 fi
+
+if [ -d "$HOME/.zplug/bin" ]; then 
+  export PATH="$HOME/.zplug/bin:$PATH"
+fi
