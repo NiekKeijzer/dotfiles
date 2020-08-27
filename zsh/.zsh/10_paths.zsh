@@ -30,3 +30,7 @@ fi
 if [ -d "$HOME/.zplug/bin" ]; then 
   export PATH="$HOME/.zplug/bin:$PATH"
 fi
+
+if [ -d "$HOME/.flutter/bin" ]; then 
+  export PATH="$HOME/.flutter/bin:$PATH"
+fi 
