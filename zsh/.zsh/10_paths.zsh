@@ -34,3 +34,7 @@ fi
 if [ -d "$HOME/.flutter/bin" ]; then 
   export PATH="$HOME/.flutter/bin:$PATH"
 fi 
+
+if [ -d /etc/paths.d ]; then 
+  export PATH="/etc/paths.d:$PATH"
+fi
