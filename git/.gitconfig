@@ -3,7 +3,7 @@
     commitn = commit --author=\"Niek Keijzer <niek@burrow.cloud>\"
 
 [core]
-	autocrlf = input
+  autocrlf = input
   excludesfiles = ~/.gitignore_global
 
 [include]
