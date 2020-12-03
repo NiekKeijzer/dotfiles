@@ -7,7 +7,7 @@ Might not work for you, but works for me.
 This repository relies on Git submodules, make sure you clone this repo with
 
 ```
-git clone --recursive git@gitlab.com:NiekKeijzer/dotfiles.git
+git clone --recursive https://github.com/NiekKeijzer/dotfiles.git
 ```
 
 To update the submodules run
