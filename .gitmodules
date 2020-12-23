@@ -1,9 +1,6 @@
 [submodule "hammerspoon/.hammerspoon/spoons"]
 	path = hammerspoon/.hammerspoon/spoons
 	url = https://github.com/miromannino/miro-windows-manager.git
-[submodule "zsh/.zsh-custom/themes/p10k"]
-	path = zsh/.zsh-custom/themes/p10k
-	url = https://github.com/romkatv/powerlevel10k.git
 [submodule "zsh/.zsh-custom/plugins/zinit"]
 	path = zsh/.zsh-custom/plugins/zinit
 	url = https://github.com/zdharma/zinit.git

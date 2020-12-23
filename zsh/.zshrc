@@ -15,7 +15,6 @@ fi
 
 # Load user config
 for config ($ZSH_CUSTOM/user/*.zsh) source $config
-# source "$ZSH_CUSTOM/user/11_zinit.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
