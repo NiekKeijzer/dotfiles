@@ -1,21 +1,9 @@
-[submodule "zsh/.zsh-custom/plugins/zsh-completions"]
-	path = zsh/.zsh-custom/plugins/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions
-[submodule "zsh/.zsh-custom/plugins/zsh-syntax-highlighting"]
-	path = zsh/.zsh-custom/plugins/zsh-syntax-highlighting
-	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
-[submodule "zsh/.zsh-custom/plugins/zsh-defer"]
-	path = zsh/.zsh-custom/plugins/zsh-defer
-	url = https://github.com/romkatv/zsh-defer.git
-[submodule "zsh/.oh-my-zsh"]
-	path = zsh/.oh-my-zsh
-	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule "zsh/.zsh-custom/plugins/zsh-async"]
-	path = zsh/.zsh-custom/plugins/zsh-async
-	url = https://github.com/mafredri/zsh-async.git
-[submodule "dokku/.dokku"]
-	path = dokku/.dokku
-	url = https://github.com/dokku/dokku.git
 [submodule "hammerspoon/.hammerspoon/spoons"]
 	path = hammerspoon/.hammerspoon/spoons
 	url = https://github.com/miromannino/miro-windows-manager.git
+[submodule "zsh/.zsh-custom/themes/p10k"]
+	path = zsh/.zsh-custom/themes/p10k
+	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "zsh/.zsh-custom/plugins/zinit"]
+	path = zsh/.zsh-custom/plugins/zinit
+	url = https://github.com/zdharma/zinit.git
