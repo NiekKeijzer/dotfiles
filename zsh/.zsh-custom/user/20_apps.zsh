@@ -1,13 +1,23 @@
-if command -v pyenv >/dev/null; then
-  eval "$(pyenv init -)"
-  eval "$(pyenv virtualenv-init -)"
-fi
-
-if command -v fuck >/dev/null; then
-  eval $(fuck () { TF_PYTHONIOENCODING=$PYTHONIOENCODING; export TF_SHELL=zsh; export TF_ALIAS=fuck; TF_SHELL_ALIASES=$(alias); export TF_SHELL_ALIASES; TF_HISTORY="$(fc -ln -10)"; export TF_HISTORY; export PYTHONIOENCODING=utf-8; TF_CMD=$( thefuck THEFUCK_ARGUMENT_PLACEHOLDER $@ ) && eval $TF_CMD; unset TF_HISTORY; export PYTHONIOENCODING=$TF_PYTHONIOENCODING; test -n "$TF_CMD" && print -s $TF_CMD })
-fi
-
 if command -v fnm >/dev/null; then
   # Load FNM (if installed)
   eval "$(fnm env)"
 fi
+
+# FZF configs
+export FZF_DEFAULT_OPTS="
+--ansi
+--layout=default
+--info=inline
+--height=50%
+--multi
+--preview-window=right:50%
+--preview-window=sharp
+--preview-window=cycle
+--preview '([[ -f {} ]] && (bat --style=numbers --color=always --theme=gruvbox --line-range :500 {} || cat {})) || ([[ -d {} ]] && (tree -C {} | less)) || echo {} 2> /dev/null | head -200'
+--prompt='λ -> '
+--pointer='|>'
+--marker='✓'
+--bind 'ctrl-e:execute(nvim {} < /dev/tty > /dev/tty 2>&1)' > selected
+--bind 'ctrl-v:execute(code {+})'"
+export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow -g "!{.git,node_modules}/*" 2> /dev/null'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

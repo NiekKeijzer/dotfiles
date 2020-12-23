@@ -1,7 +1,13 @@
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export DOKKU_HOST=dokku01.niek.tech
+export EDITOR='vim'
+export VISUAL=$EDITOR
+export PAGER='less'
+export SHELL='/bin/zsh'
+export BAT_THEME="Nord"
+export TERM="screen-256color"
 
-export LC_ALL=en_US.UTF-8
+# Locale
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
 
 # GPG
 export GPG_TTY=$(tty)
